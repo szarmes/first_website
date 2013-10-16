@@ -5,11 +5,19 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path, id: "brand" %></li>
-          <li><%= link_to "Portfolio", portfolio_path, id: "brand" %></li>
-          <li><%= link_to "Work", work_path, id: "brand" %></li>
+          <li><%= link_to "Portfolio", '/portfolio', id: "brand" %></li>
+          <li><%= link_to "Resume", resume_path, id: "brand" %></li>
           <li><%= link_to "References", references_path, id: "brand" %></li>
-          <li><%= link_to "Help", help_path, id: "brand" %></li>
           <li><%= link_to "Contact", contact_path, id: "brand" %></li>
+          <% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id: "brand") %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path, id:"brand")  %>  
+  </li>
+<% end %>
         </ul>
       </nav>
     </div>

@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<% if @items.any? %>
+		  <ol class="microposts">
+		    <%= render partial: 'shared/item', collection: @items %>
+		  </ol>
+		  <%= will_paginate @items %>
+	<% end %>
+
+<% end %>

@@ -8,6 +8,11 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'paperclip'
+gem 'devise'
+gem 'mail_form'
+gem 'figaro'
+gem 'debugger'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

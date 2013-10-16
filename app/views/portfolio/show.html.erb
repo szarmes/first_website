@@ -1,0 +1,66 @@
+<% provide(:title, 'Portfolio') %>
+<body class = "portfolio">
+<h1>Portfolio</h1>
+	<div class="port">
+		<p>
+			<h3>Completed Work</h3>
+			<h2 class = "refer"> Stranded Sloth</h2>
+			<div>
+ 			<img src="/assets/ss.jpg" height = 100 width = 100 align ="left"/>
+ 			<p class = "ex4">
+ 			Developed the <a href="https://itunes.apple.com/us/app/stranded-sloth/id688946946?mt=8">iOS</a>/<a href="https://play.google.com/store/apps/details?id=com.Raffi.StrandedSloth">Android</a> app Stranded Sloth. It is a basic arcade/survival game in which the player must defend the sloth from incoming attackers. The coding was done in the language Lua and we used Corona Simulator to test it. It was developed with Raffi Kudlac for a directed studies course (COSC 448) at UBCO, under the direction of <a href="https://people.ok.ubc.ca/bowenhui/">Bowen Hui</a>.
+ 			</p>
+ 			<p class = "ex4">
+ 			<b>Downloads</b> (1 month from deployment): 1000+ 
+ 			</p>
+ 		</div>
+
+		</p>
+	</div>
+	<div class="port1">
+		<p>
+			<h2 class = "refer">MRD Derivatives</h2>
+			<div>
+ 			<img src = "/assets/mrd.png" height = 100 width = 100 align ="left"/>
+ 			<p class = "ex4">
+ 			Developed the <a href="https://play.google.com/store/apps/details?id=com.snapquack.calculus">Android</a> app MRD Derivatives. It is an application that will take an input function and return the derivative of that function. It also gives you all the functions you'd need for any Calculus I or II course. The app has a few other features as well, such as numerically integrating a function with provided upper and lower bounds, simplifying the function, or subbing in a value for x and evaluating.</p>
+ 			<p class="ex4">The coding was done in Java and mainly relies on recursion techniques. All the code is executed locally on the Android device, <b>internet access is not required.</b></p>
+ 			<p class = "ex4">It was done as a side-project with Matthew Bojey and Raffi Kudlac.</p>
+ 		</div>
+		</p>
+	</div>
+		<% if @items.any? %>
+		  <ol class="microposts">
+		    <%= render partial: 'shared/item1', collection: @items %>
+		  </ol>
+		  <%= will_paginate @items %>
+	<% end %>
+		<% if user_signed_in? %>
+		<div>
+
+<%= form_for @newUpload, :url => { :action => "create" } do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field1">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label "File" %>
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
+</div>
+<% end %>
+
+		
+
+
+	
+
+</body>

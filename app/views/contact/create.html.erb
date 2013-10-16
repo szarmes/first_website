@@ -1,0 +1,12 @@
+<h1>Contact Me</h1>
+
+	<%= form_for @contact_form, :url => contact_path do |f| %>
+	<div class="field1">
+	Your name: <%= f.text_field :name %> <br />
+	Your email: <%= f.text_field :email %> <br />
+	Comment: <%= f.text_area :comment %> <br />
+	<%= f.submit "Submit" %> 
+</div>
+<% end %>
+
+<%= render 'shared/list' %>

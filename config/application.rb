@@ -11,7 +11,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module SampleApp
+module First_Website
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -24,6 +24,27 @@ module SampleApp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-  end
+    #config.assets.initialize_on_precompile = false
+    #config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "heroku.com",
+      :user_name      => ENV['USERNAME'],
+      :password       => ENV['PASSWORD'],
+
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+      } 
+
+  
+  
+  config.action_mailer.default_url_options = {
+  :host => "heroku.com"
+}
+
+  # config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
+  
 end
+end
+
