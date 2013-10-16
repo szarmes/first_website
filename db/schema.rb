@@ -13,23 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20131012202059) do
 
-  create_table "ContactForm", force: true do |t|
-    t.string "name"
-    t.string "email"
-    t.string "comment"
-  end
-
-  create_table "ContactForms", force: true do |t|
-    t.string "name"
-    t.string "email"
-    t.string "comment"
-  end
-
-  create_table "contacts", force: true do |t|
-    t.string "name"
-    t.string "email"
-    t.string "comment"
-  end
+  
 
   create_table "uploads", force: true do |t|
     t.string   "title"
