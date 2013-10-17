@@ -10,7 +10,9 @@ First_Website::Application.routes.draw do
   end
   
   #resources :contact
-  resources :portfolio
+  resources :portfolio 
+
+  delete 'portfolio' => 'portfolio#destroy', :as => :destroy_upload
 
    #do
     #get "serve", :on => :member

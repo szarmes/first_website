@@ -1,0 +1,19 @@
+
+    <div class="user">
+      <h2 class="refer"> <%= upload.title %> </h2>
+    </div>
+    <div class="avatar">
+     <p><%= image_tag upload.avatar %></p>
+    </div>
+    <div class="content">
+      <p class="ex4"><%= upload.content %> </p>
+    </div>
+    <%= link_to "delete", @uploads, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+    
+
+
+
+   
+   
+ 

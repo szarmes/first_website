@@ -27,7 +27,14 @@ class PortfolioController < ApplicationController
     @newUpload = Uploads.new if user_signed_in?
     @items = Uploads.paginate(page: params[:page])
   end
-
+  
+  def destroy
+    
+    @upload = Uploads.find_by(params[:id])
+    @upload.destroy
+    flash[:success] = "Upload deleted."
+    redirect_to '/portfolio'
+  end
   
     
     # normal save

@@ -31,7 +31,7 @@
 	</div>
 	<% if @items.any? %>
 		  <ol class="microposts">
-		    <%= render partial: 'shared/item1', collection: @items %>
+		    <%= render partial: 'shared/upload', collection: @items %>
 		  </ol>
 		  <%= will_paginate @items %>
 	<% end %>
