@@ -4,15 +4,10 @@ class StaticPagesController < ApplicationController
   
   end
 
-  def help
+  def resume
   end
 
-  def about
-  end
-  def contact
-  end
-  def file
-    
+  def references
   end
   
 end

@@ -1,16 +1,12 @@
 class PortfolioController < ApplicationController
 
+  before_action :admin_user,     only: [:create, :destroy ]
 
-
-  def new
+  def index
     @newUpload = Uploads.new if user_signed_in?
     @items = Uploads.paginate(page: params[:page])
   end
-  def show
-    @newUpload = Uploads.new if user_signed_in?
-    @items = Uploads.paginate(page: params[:page])
-  end
- 
+
   def create
     if user_signed_in?
     # build a photo and pass it into a block to set other attributes
@@ -19,14 +15,12 @@ class PortfolioController < ApplicationController
         flash[:success]= "Upload complete!"
         redirect_to '/portfolio'
       else
+        flash[:error]= "Upload not complete!"
         redirect_to '/portfolio'
       end
     end
   end
-  def index
-    @newUpload = Uploads.new if user_signed_in?
-    @items = Uploads.paginate(page: params[:page])
-  end
+  
   
   def destroy
     
@@ -41,6 +35,9 @@ class PortfolioController < ApplicationController
   private
   def project_params
     params.require(:uploads).permit(:title,:content,:avatar)
+  end
+  def admin_user
+      redirect_to(root_url) unless user_signed_in? and current_user.admin?
   end
   
   
