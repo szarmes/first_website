@@ -35,7 +35,7 @@ First_Website::Application.routes.draw do
   #match '/contact', to: 'contact_form#new', via: 'get'
   match '/resume', to: 'static_pages#resume', via: 'get'
   match '/references', to: 'static_pages#references', via: 'get'
- match '/portfolio', to: 'portfolio#show', via: 'get'
+# match '/portfolio', to: 'portfolio#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
